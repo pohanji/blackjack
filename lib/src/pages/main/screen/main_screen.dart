@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:blackjack/src/pages/game/screen/game_screen.dart';
 import 'package:blackjack/src/pages/rules/rules_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class MainScreen extends StatelessWidget {
                   onPressed: () => {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => null),
+                      MaterialPageRoute(builder: (context) => GameScreen()),
                     )
                   },
                 ),
