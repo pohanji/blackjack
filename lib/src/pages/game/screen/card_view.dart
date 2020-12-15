@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:blackjack/src/entities/color_enum.dart';
 
 class CardView extends StatelessWidget {
-  int _player;
-
-  CardView(int player) {
-    _player = player;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Text("Oof");
+    return Stack(children: [
+      Container(
+        child: Image.asset(
+          "assets/cards/hearts/9.png",
+          scale: 1.5,
+        ),
+      ),
+      Container(
+          padding: const EdgeInsets.only(left: 32),
+          child: Image.asset(
+            "assets/cards/clubs/A.png",
+            scale: 1.5,
+          )),
+      Container(
+          padding: const EdgeInsets.only(left: 64),
+          child: Image.asset(
+            "assets/cards/clubs/10.png",
+            scale: 1.5,
+          )),
+    ]);
   }
 }

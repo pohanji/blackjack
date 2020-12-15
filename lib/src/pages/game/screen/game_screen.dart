@@ -1,3 +1,4 @@
+import 'package:blackjack/src/pages/game/screen/card_view.dart';
 import 'package:flutter/material.dart';
 
 class GameScreen extends StatelessWidget {
@@ -9,7 +10,18 @@ class GameScreen extends StatelessWidget {
                 image: DecorationImage(
                     image: AssetImage("assets/backgrounds/pozadi_hry.png"),
                     fit: BoxFit.cover)),
-            child: null));
+            child: Stack(
+              children: [
+                Align(
+                  child: CardView(),
+                  alignment: Alignment.topCenter,
+                ),
+                Align(
+                  child: CardView(),
+                  alignment: Alignment.bottomCenter,
+                )
+              ],
+            )));
     // Stack(
     //   children: [
     //     FlatButton(
