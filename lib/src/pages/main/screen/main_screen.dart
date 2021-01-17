@@ -88,10 +88,3 @@ class MainScreen extends StatelessWidget {
             )));
   }
 }
-
-class MainScreenState extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    throw UnimplementedError();
-  }
-}
