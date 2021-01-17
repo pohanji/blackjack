@@ -1,7 +1,7 @@
-class Card {
+class CardEntity {
   String value; //Value for render
   String color;
-  Card(String value, String color) {
+  CardEntity(String value, String color) {
     this.value = value;
     this.color = color;
   }
