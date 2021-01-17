@@ -47,7 +47,7 @@ class RulesScreen extends StatelessWidget {
               ),
             )),
             Text(
-              "Karty s hodnotou 2 - 10 mají hodnotu uvedenou na kartě.\nKarty J, Q a K mají hodnotu 10.\nKarta A může mít hodnotu 1 i 11. ",
+              "Karty s hodnotou 2 - 10 mají hodnotu uvedenou na kartě.\nKarty J, Q a K mají hodnotu 10.\nKarta A nabývá hodnoty 11",
               style: TextStyle(
                 fontSize: 16,
                 fontFamily: "Calibri",

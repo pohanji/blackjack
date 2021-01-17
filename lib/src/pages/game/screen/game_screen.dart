@@ -89,7 +89,7 @@ class GameScreen extends StatelessWidget {
                           ),
                           CardView(snapshot.data[_players[0].name]),
                           FlatButton(
-                            onPressed: () => _viewBloc.draw(_players[0]), 
+                            onPressed: () => _viewBloc.hitMeBabyOneMoreTime(_players[0]), 
                             child: Text("HIT ME",
                               style: TextStyle(
                                 fontSize: 25,

@@ -49,7 +49,7 @@ class CardsViewBloc {
             FlatButton(
               child: Text('Potvrdit'),
               onPressed: () {
-                // Navigator.of(context).pop();
+                Navigator.of(context).pop();
                 _restart();
               },
             ),
@@ -126,7 +126,6 @@ class CardsViewBloc {
     cardList.add(card);
     _cardPool[player.name] = cardList;
 
-    this.summarize(player, isHitting: true);
     _subject.sink.add(_cardPool);
   }
 
@@ -137,8 +136,16 @@ class CardsViewBloc {
       draw(_players[1]);
       standByMe(_players[1]);
     } else {
+      if (totalCountDealer == 21) {
+        this._lost(player);
+      }
       this.summarize(player);
     }
+  }
+
+  void hitMeBabyOneMoreTime(Player player) {
+    draw(player);
+    summarize(player, isHitting: true);
   }
 
   int getPoints(Player player) {
@@ -167,11 +174,11 @@ class CardsViewBloc {
     var totalCountPlayer = getPoints(player);
     var totalCountDealer = getPoints(_players[1]); 
 
-    if ((totalCountPlayer > 21 || totalCountDealer == 21 || totalCountPlayer < totalCountDealer && !isHitting)) && !(cards.length == 2 && cards.every((element) => element.value == "A"))) {
+    if ((totalCountPlayer > 21 || (totalCountPlayer < totalCountDealer && !isHitting)) && !(cards.length == 2 && cards.every((element) => element.value == "A"))) {
       this._lost(player);
     } else if (!isHitting && totalCountPlayer == totalCountDealer) {
       this._tie(player);
-    } else if ((totalCountPlayer == 21 && totalCountDealer < 21 ) || (cards.length == 2 && cards.every((element) => element.value == "A")) && !isHitting) {
+    } else if (!isHitting && (totalCountPlayer > totalCountDealer || totalCountDealer > 21 || (cards.length == 2 && cards.every((element) => element.value == "A")))) {
       this._win(player);
     }
   }
