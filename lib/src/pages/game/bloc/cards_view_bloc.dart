@@ -167,11 +167,11 @@ class CardsViewBloc {
     var totalCountPlayer = getPoints(player);
     var totalCountDealer = getPoints(_players[1]); 
 
-    if ((totalCountPlayer > 21 || totalCountDealer == 21 || (totalCountPlayer == 21 && totalCountDealer == 21 || totalCountPlayer < totalCountDealer && !isHitting)) && !(cards.length == 2 && cards.every((element) => element.value == "A"))) {
+    if ((totalCountPlayer > 21 || totalCountDealer == 21 || totalCountPlayer < totalCountDealer && !isHitting)) && !(cards.length == 2 && cards.every((element) => element.value == "A"))) {
       this._lost(player);
     } else if (!isHitting && totalCountPlayer == totalCountDealer) {
       this._tie(player);
-    } else if ((totalCountPlayer == 21 && totalCountDealer < 21 ) || (cards.length == 2 && cards.every((element) => element.value == "A")) && !isHitting) {
+    } else if ((totalCountPlayer > totalCountDealer) || (cards.length == 2 && cards.every((element) => element.value == "A")) && !isHitting) {
       this._win(player);
     }
   }
